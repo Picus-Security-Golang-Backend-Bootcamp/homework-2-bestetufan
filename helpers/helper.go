@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bestetufan/bookstore/interfaces"
 	"github.com/bestetufan/bookstore/models"
 )
 
@@ -74,14 +73,13 @@ func BuyBookById(bookStore []*models.Book, bookId int, count int) {
 	if book == nil {
 		fmt.Println("Book could not be found by entered id!")
 	} else {
-
 		fmt.Print("Book information before buy operation: ")
 		book.PrintInfo()
 
 		result, error := book.Buy(count)
 
 		if result {
-			fmt.Print("Operation successful, current book information: ")
+			fmt.Print("Operation successful. Current book information: ")
 			book.PrintInfo()
 		} else {
 			fmt.Println(error)
@@ -97,18 +95,13 @@ func DeleteBookById(bookStore []*models.Book, bookId int) {
 	if book == nil {
 		fmt.Println("Book could not be found by entered id!")
 	} else {
-		result, error := delete(book)
+		result, error := book.Delete()
 
 		if result {
-			fmt.Println("Operation successful, current book list: ")
+			fmt.Println("Operation successful. Current book list: ")
 			ListBooks(bookStore)
 		} else {
 			fmt.Println(error)
 		}
 	}
-}
-
-// Helper for delete through interface method
-func delete(deleteable interfaces.Deleteable) (bool, error) {
-	return deleteable.Delete()
 }

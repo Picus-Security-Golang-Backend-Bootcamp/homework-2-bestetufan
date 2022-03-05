@@ -47,11 +47,15 @@ func (b *Book) PrintInfo() {
 // Buys book and decrements the related stock count
 func (b *Book) Buy(buyCount int) (bool, error) {
 	if buyCount <= 0 {
-		return false, errors.New("Invalid buy count")
+		return false, errors.New("Operation failed. Invalid buy count")
+	}
+
+	if b.IsDeleted {
+		return false, errors.New("Operation failed. Deleted books cannot be bought")
 	}
 
 	if b.StockCount < buyCount {
-		return false, errors.New("Insufficient stock amount")
+		return false, errors.New("Operation failed. Insufficient stock amount")
 	}
 
 	b.StockCount -= buyCount

@@ -20,13 +20,13 @@ func init() {
 
 	// Test book names & authors (pointer) slice
 	var authors = []*models.Author{
-		{Name: "Thomas", Surname: "Keneally", Age: 67},
-		{Name: "Paulo", Surname: "Coelho", Age: 51},
-		{Name: "Harper", Surname: "Lee", Age: 32},
-		{Name: "Emrah", Surname: "Serbes", Age: 45},
-		{Name: "JRR", Surname: "Tolkien", Age: 34},
+		{Name: "Thomas", Surname: "Keneally", Age: 86},
+		{Name: "Stephen", Surname: "King", Age: 55},
+		{Name: "Ece", Surname: "Temelkuran", Age: 49},
+		{Name: "Emrah", Surname: "Serbes", Age: 41},
+		{Name: "J.R.R.", Surname: "Tolkien", Age: 72},
 	}
-	var bookNames = []string{"Schindler's List", "The Shining", "Clockwork Orange", "Deliduman", "Lord of the Rings"}
+	var bookNames = []string{"Schindler's List", "The Shining", "Devir", "Deliduman", "Lord of the Rings"}
 
 	// Populate global book struct slice using local book names & authors
 	for i, bookName := range bookNames {
